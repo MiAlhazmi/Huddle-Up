@@ -36,7 +36,7 @@ public class MusicPlayerControl : MonoBehaviour
     
     public void PlayMapMusic()
     {
-        if (SceneManager.GetActiveScene().name == "PlaygroundScene")
+        if (SceneManager.GetActiveScene().name == "Lobby")
         {
             StopMusic();
             return;

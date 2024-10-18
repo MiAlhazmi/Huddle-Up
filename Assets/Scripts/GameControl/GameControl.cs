@@ -444,7 +444,7 @@ public class GameControl : MonoBehaviour, PlayerToGameControl
         else
         {
             // TODO: safe stats!! 
-            SceneManager.LoadScene("PlaygroundScene");
+            SceneManager.LoadScene("Lobby");
         }
     }
 
