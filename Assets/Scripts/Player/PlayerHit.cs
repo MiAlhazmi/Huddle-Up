@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerHit : MonoBehaviour
@@ -22,10 +23,21 @@ public class PlayerHit : MonoBehaviour
     private void Awake()
     {
         _playerLayerMask = LayerMask.GetMask("Player");
-        _gameControl = FindObjectOfType<GameControl>().GetComponent<GameControl>();
-        _animation = GetComponent<PlayerAnimation>();
-        _playerUI = GetComponent<PlayerUI>();
-        _sEPlayer = GetComponent<SoundEffectPlayer>();
+        try
+        {
+            if (!FindObjectOfType<GameControl>().TryGetComponent(out _gameControl))
+                Debug.Log("Error: GameControl Component not found!");
+        }
+        catch (Exception e)
+        {
+            Debug.Log($"Couldn't find GameControl GO! {e.Message}");
+        }
+        if (!TryGetComponent<PlayerAnimation>(out _animation))
+            Debug.LogError("Error: PlayerAnimation Component not found!");
+        if (!TryGetComponent<PlayerUI>(out _playerUI))
+            Debug.LogError("Error: PlayerUI Component not found!");
+        if (!TryGetComponent<SoundEffectPlayer>(out _sEPlayer))
+            Debug.LogError("Error: SoundEffectPlayer Component not found!");
         // playerClass = GetComponent<Player>();
     }
 
@@ -94,20 +106,23 @@ public class PlayerHit : MonoBehaviour
             // }
             // else
             Debug.Log("Ray has hit a player!");
-            _gameControl.HasHit(gameObject, hitTarget.collider.gameObject);
+            if (!_gameControl.IsUnityNull())
+                _gameControl.HasHit(gameObject, hitTarget.collider.gameObject);
         }
         else if (Physics.Raycast(ray2, out RaycastHit hitTarget2, _hitDistance, _playerLayerMask))
         {
             _sEPlayer.PlayHitMarker();
             Debug.Log("A player was Hit!");
-            _gameControl.HasHit(gameObject, hitTarget2.collider.gameObject);
+            if (!_gameControl.IsUnityNull())
+                _gameControl.HasHit(gameObject, hitTarget2.collider.gameObject);
         }
         
         else if (Physics.Raycast(ray3, out RaycastHit hitTarget3, _hitDistance, _playerLayerMask))
         {
             _sEPlayer.PlayHitMarker();
             Debug.Log("A player was Hit!");
-            _gameControl.HasHit(gameObject, hitTarget3.collider.gameObject);
+            if (!_gameControl.IsUnityNull())
+                _gameControl.HasHit(gameObject, hitTarget3.collider.gameObject);
         }
         else
         {

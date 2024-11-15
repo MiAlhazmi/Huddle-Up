@@ -104,12 +104,12 @@ public class GameControl : MonoBehaviour, PlayerToGameControl
         Debug.Log("From GameControl OnPlayerJoin(): " + playerInput.GameObject().name + " Joined the lobby");
         GiveRandomPosTo(playerInput.GameObject());
     }
-
+    
     private void OnSceneChanged(Scene current, Scene next)
     {
         ChangePlayersRespawnPos();
         // if scene is lobby: reset all player (recover all dead, empty dead list, empty survivor list) 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("PlaygroundScene") && _numGamesPlayed != 0) // <- instead we can check current var, if !MainMenu and then we increment numGames... here 
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Lobby") && _numGamesPlayed != 0) // <- instead we can check current var, if !MainMenu and then we increment numGames... here 
         {
             ResetAllPlayers();
             currentTagOwner = null;
