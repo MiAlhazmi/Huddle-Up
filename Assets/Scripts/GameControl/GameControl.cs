@@ -109,7 +109,7 @@ public class GameControl : MonoBehaviour, PlayerToGameControl
     {
         ChangePlayersRespawnPos();
         // if scene is lobby: reset all player (recover all dead, empty dead list, empty survivor list) 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("PlaygroundScene") && _numGamesPlayed != 0) // <- instead we can check current var, if !MainMenu and then we increment numGames... here 
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Lobby") && _numGamesPlayed != 0) // <- instead we can check current var, if !MainMenu and then we increment numGames... here 
         {
             ResetAllPlayers();
             currentTagOwner = null;
@@ -226,7 +226,7 @@ public class GameControl : MonoBehaviour, PlayerToGameControl
     private void UpdateRespawnPos()
     {
         if (respawnLand == null) return;
-    
+        
         Transform respawnTransform = respawnLand.transform;
         Vector3 respawnPos = respawnTransform.position;
         Vector3 respawnScale = respawnTransform.localScale;

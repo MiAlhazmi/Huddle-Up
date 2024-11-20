@@ -22,7 +22,7 @@ public class ControlScoreboardUI : MonoBehaviour
 
     private void OnSceneChanged(Scene current, Scene next)
     {
-        if(!next.Equals(SceneManager.GetSceneByName("PlaygroundScene"))) return;
+        if(!next.Equals(SceneManager.GetSceneByName("Lobby"))) return;
         if (_gameControl.IsUnityNull()) _gameControl = GameObject.FindGameObjectWithTag("GameControl").GetComponent<GameControl>();
         UpdateScore();
     }

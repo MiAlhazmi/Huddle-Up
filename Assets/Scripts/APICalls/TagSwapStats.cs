@@ -96,12 +96,18 @@ namespace APICalls
                     Wins.text = tagSwap.wins.ToString();
                     Wins.color = Color.green;
 
-                    Loses.text = tagSwap.loses.ToString();
+                    // Loses.text = tagSwap.loses.ToString();
+                    Loses.text = "heyy";
                     Loses.color = Color.green;
+                    Debug.Log(Loses.text);
+                    Debug.Log(Wins.text);
+                    Debug.Log(GamesPlayed.text);
                 }
                 else
                 {
-                    // ErrorText.text = tagSwapResult.message;
+                    Debug.Log(response.ToString());
+                    
+                    //  ErrorText.text = tagSwapResult.message;
                     // ErrorText.color = Color.red;
                 }
             }
