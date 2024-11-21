@@ -11,7 +11,7 @@ public class NewBehaviourScript : MonoBehaviour
     [Header("Volume Setting")]
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
-    [SerializeField] private float defaultVolume = 1.0f;
+    [SerializeField] private float defaultVolume = 50f;
 
     [Header("Gameplay Settings")]
     [SerializeField] private TMP_Text ControllerSenTextValue = null;
@@ -68,6 +68,10 @@ public class NewBehaviourScript : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        
+        Debug.Log(PlayerPrefs.GetFloat("masterVolume", 50f) * 100);
+        SetVolume(PlayerPrefs.GetFloat("masterVolume", 50f) * 100);
+
     }
     
     public void SetResolution(int resolutionIndex)
@@ -77,22 +81,12 @@ public class NewBehaviourScript : MonoBehaviour
     }
     public void PlayButton()
     {
-        // SceneManager.LoadScene(PlayMenu);
-        SceneManager.LoadScene("GameModesMenu");
+        Loader.LoadScene(Loader.MenuScene.GameModesScene);
     }
 
     public void ViewStatsYes()
     {
-         SceneManager.LoadScene("StatsMenu");
-        // if (PlayerPrefs.HasKey("Stats"))
-        // {
-        //     StatsLoad = PlayerPrefs.GetString("Stats");
-        //     SceneManager.LoadScene("StatsMenu");
-        // }
-        // else
-        // {
-        //     noStatsDialog.SetActive(true);
-        // }
+         Loader.LoadScene(Loader.MenuScene.StatsScene);
     }
 
     public void ExitButton()
@@ -102,13 +96,15 @@ public class NewBehaviourScript : MonoBehaviour
     
     public void SetVolume(float volume)
     {
-        AudioListener.volume = volume;
-        volumeTextValue.text = volume.ToString("0.0");
+        AudioListener.volume = volume/100;
+        volumeSlider.value = volume;
+        volumeTextValue.text = volume.ToString("0");
     }  
 
     public void VolumeApply()
     {
         PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
+        PlayerPrefs.Save();
         StartCoroutine(ConfirmationBox());
     }
 
@@ -183,9 +179,9 @@ public class NewBehaviourScript : MonoBehaviour
 
         if(MenuType == "Audio")
         {
-            AudioListener.volume = defaultVolume;
+            AudioListener.volume = defaultVolume/100;
             volumeSlider.value = defaultVolume;
-            volumeTextValue.text = defaultVolume.ToString("0.0");
+            volumeTextValue.text = defaultVolume.ToString("0");
             VolumeApply();
         }
 

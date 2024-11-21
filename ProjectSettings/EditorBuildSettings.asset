@@ -5,37 +5,40 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/AccountScenes/Login/Login.unity
+  - enabled: 0
+    path: Assets/_Scenes/AccountScenes/Login/Login.unity
     guid: 40d7604a10f0aef49aacbc515f35a291
-  - enabled: 1
-    path: Assets/Scenes/AccountScenes/Register/Register.unity
+  - enabled: 0
+    path: Assets/_Scenes/AccountScenes/Register/Register.unity
     guid: 6fb2f99291774804182a1f17ae209ca4
   - enabled: 1
-    path: Assets/Scenes/Menus/MainMenu_Scene.unity
+    path: Assets/_Scenes/Menus/MainMenuScene.unity
     guid: 5a0e80ad1d99e5d4ab57ba249501ada3
   - enabled: 1
-    path: Assets/Scenes/Menus/GameModesMenu.unity
+    path: Assets/_Scenes/LoadingScene.unity
+    guid: 9aa1011352f1fa141aceb8fe593966ba
+  - enabled: 1
+    path: Assets/_Scenes/Menus/GameModesScene.unity
     guid: 42d12faafc681ea45a6b4d70173a9fdc
   - enabled: 1
-    path: Assets/Scenes/Maps/Lobby.unity
+    path: Assets/_Scenes/Maps/Lobby.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Menus/StatsMenu/StatsMenu.unity
+    path: Assets/_Scenes/Menus/StatsMenu/StatsScene.unity
     guid: c348d2d920c219842a85f49f5dbd6b0c
   - enabled: 1
-    path: Assets/Scenes/Menus/StatsMenu/Stats.unity
+    path: Assets/_Scenes/Menus/StatsMenu/TagSwapStatsScene.unity
     guid: 9316f5f6df931f2479ce9c5734852045
   - enabled: 1
-    path: Assets/Scenes/AccountScenes/UpdateUsername.unity
+    path: Assets/_Scenes/AccountScenes/UpdateUsername.unity
     guid: cd5e077370460444aa2fb02d7f7d1232
   - enabled: 1
-    path: Assets/Scenes/Maps/Playground.unity
+    path: Assets/_Scenes/Maps/Playground.unity
     guid: b5274273a569d453b997e2138d08be92
   - enabled: 1
-    path: Assets/Scenes/Maps/Camp.unity
+    path: Assets/_Scenes/Maps/Camp.unity
     guid: 9a8a6ede55d3f4e43916754fba073b33
   - enabled: 1
-    path: Assets/Scenes/Maps/In Progress/Village.unity
+    path: Assets/_Scenes/Maps/In Progress/Village.unity
     guid: 2243d5f14b45c473483c4b3da9d9a204
   m_configObjects: {}
