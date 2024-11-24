@@ -752,6 +752,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d5166e6e-526c-4c2c-8c2c-9e321feee391
     m_ActionName: Player/Interact[/Keyboard/e,/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: be3da0bd-30c9-406b-809c-cd1898e5dda0
+    m_ActionName: Player/Pause[/Keyboard/escape,/DualShock4GamepadHID/start]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1316,6 +1320,10 @@ PrefabInstance:
     - target: {fileID: 295626841454427629, guid: c9a302f833de44ed98f8d53a075e3d21, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 295626841454427629, guid: c9a302f833de44ed98f8d53a075e3d21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 295626841454427629, guid: c9a302f833de44ed98f8d53a075e3d21, type: 3}
       propertyPath: m_TagString

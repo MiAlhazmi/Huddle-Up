@@ -74,7 +74,7 @@ public class GameControl : MonoBehaviour, PlayerToGameControl
         _musicPlayerControl = GetComponent<MusicPlayerControl>();
         
         timer = GetComponent<TimerControl>();
-        pauseMenu = pauseMenuObj.GetComponent<PauseMenu>();
+        // pauseMenu = pauseMenuObj.GetComponent<PauseMenu>();
         
         _playersList = new List<GameObject>();
         _survivorPlayersList = new List<GameObject>();
@@ -123,20 +123,6 @@ public class GameControl : MonoBehaviour, PlayerToGameControl
             canvasGameEnd.SetActive(false);
             numberOfRounds = 0;
             roundNumber = 0;
-        }
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (pauseMenu.isPaused)
-            {
-                pauseMenu.Resume();
-            }
-            else
-            {
-                pauseMenu.Pause();
-            }
         }
     }
 

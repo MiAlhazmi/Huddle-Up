@@ -71,6 +71,11 @@ public class MyPlayerInputManager : MonoBehaviour
         if (context.performed)
             playerInteract.Interact();
     }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        
+    }
     
 
     // Update is called once per frame
