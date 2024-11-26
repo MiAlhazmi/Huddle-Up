@@ -416,6 +416,15 @@
             "id": "c91738f1-1ef7-47a2-8dd5-f438a5ec3f9c",
             "actions": [
                 {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "4f0fe905-0245-4d50-ab6b-e762429232aa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Navigate",
                     "type": "PassThrough",
                     "id": "93a592c3-bd35-4a14-a018-1ddc38d943cb",
@@ -922,6 +931,28 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c474691-319f-45ec-b3c9-e924a8e2d080",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "11d36f00-8d8d-4098-a4b9-3c13a5d42306",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

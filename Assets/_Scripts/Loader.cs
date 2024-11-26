@@ -7,6 +7,7 @@ public static class Loader
 {
     public enum Scene
     {
+        MainMenuScene,
         Lobby,
         Playground,
         Camp,
@@ -21,11 +22,12 @@ public static class Loader
         StatsScene
     }
 
-    public static Scene targetScene;
+    private static Scene _targetScene;
 
+    // Use this if you want to have a loading scene between scense 
     public static void LoadScene(Scene scene)
     {
-        Loader.targetScene = scene;
+        Loader._targetScene = scene;
         SceneManager.LoadScene(Scene.LoadingScene.ToString());
     }
     
@@ -39,6 +41,6 @@ public static class Loader
     // going to the next one.
     public static void LoaderCallback()
     {
-        SceneManager.LoadScene(targetScene.ToString());
+        SceneManager.LoadScene(_targetScene.ToString());
     }
 }

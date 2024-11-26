@@ -9492,6 +9492,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4849526384845071535, guid: c9a302f833de44ed98f8d53a075e3d21, type: 3}
   m_PrefabInstance: {fileID: 9084778866506674560}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1820942218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1460130541610284740, guid: 569323267187a4c989d6f335067e66ed, type: 3}
+  m_PrefabInstance: {fileID: 282991248864924518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1833803456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8098133899009110889, guid: c9a302f833de44ed98f8d53a075e3d21, type: 3}
@@ -11599,6 +11610,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2426618147472495215, guid: 569323267187a4c989d6f335067e66ed, type: 3}
+      propertyPath: exitButton
+      value: 
+      objectReference: {fileID: 282991248864924520}
+    - target: {fileID: 2426618147472495215, guid: 569323267187a4c989d6f335067e66ed, type: 3}
+      propertyPath: resumeButton
+      value: 
+      objectReference: {fileID: 1820942218}
     - target: {fileID: 4645019588228744357, guid: 569323267187a4c989d6f335067e66ed, type: 3}
       propertyPath: m_Name
       value: GameControl
@@ -11657,6 +11676,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb783f418f0d544c5be1b7d6996d7b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &282991248864924520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4969864503801430650, guid: 569323267187a4c989d6f335067e66ed, type: 3}
+  m_PrefabInstance: {fileID: 282991248864924518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &463041610690088316

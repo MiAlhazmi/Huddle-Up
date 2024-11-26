@@ -6,29 +6,23 @@ using UnityEngine;
 
 public class PauseGameController : MonoBehaviour
 {
-    // public class GamePauseEventArgs : EventArgs
-    // {
-    //     private GameObject _playerGameObject;
-    //     private bool _isPaused;
-    //     public GamePauseEventArgs(GameObject player, bool isPaused){
-    //         this._playerGameObject = player;
-    //         this._isPaused = isPaused;
-    //     }
-    // }
-
-    private bool _isGamePaused = false;
+    public static PauseGameController Instance { get; private set; } // to access HandlePauseRequest()
     public event EventHandler<GamePauseEventArgs> OnGamePaused;
     public event EventHandler<GamePauseEventArgs> OnGameUnpaused;
     
-    public static PauseGameController Instance { get; private set; } // to access HandlePauseRequest()
+    private bool _isGamePaused = false;
 
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-
-    private bool HandlePauseRequest(GameObject player) // the gameobject of the player who requested to pause
+    
+    public bool HandlePauseRequest(GameObject player) // player: is the gameobject of the player who requested to pause
     {
         if (player == null)
         {
@@ -36,6 +30,7 @@ public class PauseGameController : MonoBehaviour
             return false;
         }
         _isGamePaused = !_isGamePaused;
+        Debug.Log("Player: " + player.name + _isGamePaused);
         if (_isGamePaused)
         {
             OnGamePaused?.Invoke(this, new GamePauseEventArgs(player, _isGamePaused));
