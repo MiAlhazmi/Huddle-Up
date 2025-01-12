@@ -424,7 +424,7 @@ public class GameControl : MonoBehaviour, PlayerToGameControl
         {
             // Destroy GameControl & players
             DestroyAllObjects();
-            Loader.LoadScene(Loader.MenuScene.MainMenuScene);
+            Loader.LoadScene(Loader.MenuScene.MenuScene);
             Destroy(gameObject);    // destroy GameControl
         }
         else

@@ -8,26 +8,13 @@ using UnityEngine.UI;
 public class PlayMenuController : MonoBehaviour
 {
     
-    [SerializeField] private Button backButton;
+    [SerializeField] private Button tagButton;
 
     private void Awake()
     {
-        backButton.onClick.AddListener((() =>
+        tagButton.onClick.AddListener(() =>
         {
-            Loader.LoadScene(Loader.MenuScene.MainMenuScene);
-        }));
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Loader.LoadScene(Loader.MenuScene.MainMenuScene);
-        }
-    }
-
-    public void TagButton()
-    {
-        Loader.LoadScene(Loader.Scene.Lobby);
+            Loader.LoadScene(Loader.Scene.Lobby);
+        });
     }
 }
