@@ -25,7 +25,7 @@ public class ChangeColorInteract : Interactable
     {
         if (!_locked || _colorOwner.GetComponent<Player>().GetPlayerColor() != _thisColor)
         {
-            playerGameObj.GetComponent<Player>().ChangePlayerColor(_meshRenderer.material.color);
+            playerGameObj.GetComponent<Player>().ChangePlayerColor(_thisColor);
             _colorOwner = playerGameObj;
             _locked = true;
             playerGameObj.GetComponent<PlayerUI>().UpdateNotificationText("You're now " + colorName);

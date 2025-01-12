@@ -7,8 +7,12 @@ using UnityEngine.InputSystem;
 
 public class MyPlayerInputManager : MonoBehaviour
 {
+    public MyPlayerInputManager instance;
+    
+    public static PlayerInput playerInput;      // made it static, so I can switch control to UI control to all players at once
+    public PlayerInputActionsDefault.PlayerActions PlayerActions;
+    
     private PlayerInputActionsDefault _playerInputActions;
-    public PlayerInputActionsDefault.PlayerActions _playerActions;
     private PlayerMovement movement;
     private PlayerLook look;
     private PlayerHit hit;
@@ -19,8 +23,17 @@ public class MyPlayerInputManager : MonoBehaviour
     
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        if (!TryGetComponent<PlayerInput>(out playerInput))
+        {
+            Debug.LogError("PlayerInput Component is missing!");
+        }
         _playerInputActions = new PlayerInputActionsDefault();
-        _playerActions = _playerInputActions.Player;
+        PlayerActions = _playerInputActions.Player;
         
         movement = GetComponent<PlayerMovement>();
         look = GetComponent<PlayerLook>();
@@ -71,6 +84,14 @@ public class MyPlayerInputManager : MonoBehaviour
         if (context.performed)
             playerInteract.Interact();
     }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed) {
+            if (!PauseGameController.Instance.HandlePauseRequest(gameObject))
+                Debug.Log("Couldn't Pause");
+        }
+    }
     
 
     // Update is called once per frame
@@ -86,11 +107,11 @@ public class MyPlayerInputManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerActions.Enable();
+        PlayerActions.Enable();
     }
     
     private void OnDisable()
     {
-        _playerActions.Disable();
+        PlayerActions.Disable();
     }
 }

@@ -7,6 +7,6 @@ public class NextScene : MonoBehaviour
 {
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu_Scene");
+        
     }
 }

@@ -118,7 +118,7 @@ namespace APICalls
                     if (savedData.isLoggedIn)
                     {
                         // Skip login if flag is true (handle transition to next scene)
-                        SceneManager.LoadScene("MainMenu_Scene");
+                        Loader.LoadScene(Loader.MenuScene.MainMenuScene);
                     }
                 }
                 catch (System.Exception e)
