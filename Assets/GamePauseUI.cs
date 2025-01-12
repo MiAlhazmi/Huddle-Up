@@ -55,12 +55,14 @@ public class GamePauseUI : MonoBehaviour
     {
         MyPlayerInputManager.playerInput.SwitchCurrentActionMap("UI");
         Show();
+        ShowCursor();
     }
 
     private void Unpause()
     {
         MyPlayerInputManager.playerInput.SwitchCurrentActionMap("Player");
         Hide();
+        HideCursor();
     }
     
     private void Show()
@@ -73,4 +75,14 @@ public class GamePauseUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void ShowCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    private void HideCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 }

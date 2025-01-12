@@ -83,7 +83,13 @@ public class GameControl : MonoBehaviour, PlayerToGameControl
 
         ChangePlayersRespawnPos(); 
     }
-    
+
+    private void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     private void OnEnable()
     {
         playerInputManager.onPlayerJoined += PlayerInputManagerOnPlayerJoined;
