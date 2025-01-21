@@ -42,46 +42,19 @@ public class NewBehaviourScript : MonoBehaviour
     public string StatsLoad;
     [SerializeField] private GameObject noStatsDialog = null;
 
-    [Header("Resolution Dropdowns")]
-    public TMP_Dropdown resolutionDropdown;
-    private Resolution[] resolutions;
 
     private void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        
-        resolutions = Screen.resolutions;
-        resolutionDropdown.ClearOptions();
 
         List<string> options = new List<string>();
-
-        int currentResolutionIndex = 0;
-
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
-
-            if(resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
-            {
-                currentResolutionIndex = i;
-            }
-        }
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
         
         Debug.Log(PlayerPrefs.GetFloat("masterVolume", 50f) * 100);
         SetVolume(PlayerPrefs.GetFloat("masterVolume", 50f) * 100);
 
     }
     
-    public void SetResolution(int resolutionIndex)
-    {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
     public void PlayButton()
     {
         Loader.LoadScene(Loader.MenuScene.GameModesScene);
@@ -135,7 +108,7 @@ public class NewBehaviourScript : MonoBehaviour
     public void SetBrightness(float brightness)
     {
         _brightnessLevel = brightness;
-        brightnessTextValue.text = brightness.ToString("0.0");
+        brightnessTextValue.text = brightness.ToString("0");
     }
 
     public void SetFullScreen(bool isFullscreen)
@@ -166,17 +139,13 @@ public class NewBehaviourScript : MonoBehaviour
         if (MenuType == "Graphics")
         {
             brightnessSlider.value = defaultBrightness;
-            brightnessTextValue.text = defaultBrightness.ToString("0.0");
+            brightnessTextValue.text = defaultBrightness.ToString("0");
 
             qualityDropdown.value = 1;
             QualitySettings.SetQualityLevel(1);
 
             fullScreenToggle.isOn = false;
             Screen.fullScreen = false;
-
-            Resolution currentResolution = Screen.currentResolution;
-            Screen.SetResolution(currentResolution.width, currentResolution.height, Screen.fullScreen);
-            resolutionDropdown.value = resolutions.Length;
             
         }
 
