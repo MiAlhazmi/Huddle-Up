@@ -68,11 +68,11 @@ public class CharacterControls : MonoBehaviour {
 				targetVelocity *= speed;
 
 				// Apply a force that attempts to reach our target velocity
-				Vector3 velocity = rb.velocity;
+				Vector3 velocity = rb.linearVelocity;
 				if (targetVelocity.magnitude < velocity.magnitude) //If I'm slowing down the character
 				{
 					targetVelocity = velocity;
-					rb.velocity /= 1.1f;
+					rb.linearVelocity /= 1.1f;
 				}
 				Vector3 velocityChange = (targetVelocity - velocity);
 				velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
@@ -80,10 +80,10 @@ public class CharacterControls : MonoBehaviour {
 				velocityChange.y = 0;
 				if (!slide)
 				{
-					if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
+					if (Mathf.Abs(rb.linearVelocity.magnitude) < speed * 1.0f)
 						rb.AddForce(velocityChange, ForceMode.VelocityChange);
 				}
-				else if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
+				else if (Mathf.Abs(rb.linearVelocity.magnitude) < speed * 1.0f)
 				{
 					rb.AddForce(moveDir * 0.15f, ForceMode.VelocityChange);
 					//Debug.Log(rb.velocity.magnitude);
@@ -92,23 +92,23 @@ public class CharacterControls : MonoBehaviour {
 				// Jump
 				if (IsGrounded() && Input.GetButton("Jump"))
 				{
-					rb.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
+					rb.linearVelocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
 				}
 			}
 			else
 			{
 				if (!slide)
 				{
-					Vector3 targetVelocity = new Vector3(moveDir.x * airVelocity, rb.velocity.y, moveDir.z * airVelocity);
-					Vector3 velocity = rb.velocity;
+					Vector3 targetVelocity = new Vector3(moveDir.x * airVelocity, rb.linearVelocity.y, moveDir.z * airVelocity);
+					Vector3 velocity = rb.linearVelocity;
 					Vector3 velocityChange = (targetVelocity - velocity);
 					velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
 					velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
 					rb.AddForce(velocityChange, ForceMode.VelocityChange);
 					if (velocity.y < -maxFallSpeed)
-						rb.velocity = new Vector3(velocity.x, -maxFallSpeed, velocity.z);
+						rb.linearVelocity = new Vector3(velocity.x, -maxFallSpeed, velocity.z);
 				}
-				else if (Mathf.Abs(rb.velocity.magnitude) < speed * 1.0f)
+				else if (Mathf.Abs(rb.linearVelocity.magnitude) < speed * 1.0f)
 				{
 					rb.AddForce(moveDir * 0.15f, ForceMode.VelocityChange);
 				}
@@ -116,7 +116,7 @@ public class CharacterControls : MonoBehaviour {
 		}
 		else
 		{
-			rb.velocity = pushDir * pushForce;
+			rb.linearVelocity = pushDir * pushForce;
 		}
 		// We apply gravity manually for more tuning control
 		rb.AddForce(new Vector3(0, -gravity * GetComponent<Rigidbody>().mass, 0));
@@ -153,7 +153,7 @@ public class CharacterControls : MonoBehaviour {
 
 	public void HitPlayer(Vector3 velocityF, float time)
 	{
-		rb.velocity = velocityF;
+		rb.linearVelocity = velocityF;
 
 		pushForce = velocityF.magnitude;
 		pushDir = Vector3.Normalize(velocityF);
