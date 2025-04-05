@@ -29,3 +29,6 @@
 
 ### Capsules in a Tag Swap game: 📺
 [![Collision Detection with the ground to prevent double jump](https://github.com/MiAlhazmi/Huddle-Up/assets/66153506/aac054e4-26fe-4ff1-b56e-119295e33e53)](https://youtu.be/z4mif9l-B3g)
+
+### Final State Gameplay: 📺
+[![Final Game GamePlay Video](img/lobby_screenshot.png)](https://youtu.be/6YB6mvAUw8o?si=BUFRCddLUNiMPFNf)
