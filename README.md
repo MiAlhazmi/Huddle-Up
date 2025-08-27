@@ -1,37 +1,49 @@
 # Huddle-Up 🎮
 
-## TODO
-#### High Priority:
-- [x] In Game Music
-- [x] Sound Effect when the tag is transferred
-- [x] Sound Effect when A player hits
-- [x] After one game is done, players are taken back to the lobby not to the main menu
-- [ ] Players 1-4 can leave the lobby individually
+A local multiplayer party game built in Unity featuring multiple competitive game modes where players battle for survival across various maps.
 
-#### Medium Priority:
-- [ ] Animation for color picking
-- [ ] When a player falls in the Camp map he gets respawned and frozen for a bit
-- [ ] The tagger explodes
-- [ ] A different animation for the survivor
-- [ ] Fix hit animation-delay
-##
-<br><br><Br>
+## Game Modes
 
-## The Developing journey 📈
-### Player grounded - Collision Detection: 📺
-[![Collision Detection with the ground to prevent double jump](img/player_ground_collision.png)](https://www.youtube.com/watch?v=RV0QfxW1PRk)
+### Tag (Battle Royale Style)
+- **Objective**: Don't be "it" when time runs out
+- **Rounds**: 60-second elimination rounds
+- **Mechanics**: Tag transfers between players, last person tagged when timer hits zero is eliminated
+- **Victory**: Be the last player standing
+
+*Additional game modes coming soon*
+
+## Features
+
+- **Local Multiplayer**: Up to 4 players using gamepads/keyboard
+- **Elimination-based Rounds**: Fast-paced 60-second rounds with instant eliminations
+- **Multiple Maps**: Playground, Camp, and Village environments
+- **Player Customization**: Choose your character color
+- **Spectator Mode**: Eliminated players can watch remaining rounds
+- **Pause System**: Any player can pause the game
+
+## Game Flow (Tag Mode)
+
+1. **Lobby**: Players join and select colors
+2. **Map Selection**: Choose from available maps
+3. **Round Start**: Random player becomes "it" (turns red)
+4. **60-Second Round**: Players try to tag others to pass the "it" status
+5. **Elimination**: Player who is "it" when timer ends is eliminated
+6. **Next Round**: Remaining players start new round with random "it"
+7. **Victory**: Last player standing wins
+
+## Architecture
+
+- **Modular Game Modes**: Extensible system for adding new game modes
+- **GameControl**: Manages game state, round progression, and elimination
+- **Player Systems**: Movement, interaction, and visual feedback
+- **Input System**: Modern Unity input handling for multiple devices
+- **Timer System**: Handles countdown timers and elimination logic
+
+Built with Unity's recommended patterns including ScriptableObjects for configuration, events for decoupling, and proper component separation to support multiple game modes.
 
 
-### Hit A player and pass the tag: 📺
-[![Collision Detection with the ground to prevent double jump](img/player_hit.png)]([https://www.youtube.com/watch?v=RV0QfxW1PRk](https://www.youtube.com/watch?v=4jVJt0QTGV4))
-
-
-### Capsules in a Tag Swap game: 📺
-[![Collision Detection with the ground to prevent double jump](https://github.com/MiAlhazmi/Huddle-Up/assets/66153506/aac054e4-26fe-4ff1-b56e-119295e33e53)](https://youtu.be/z4mif9l-B3g)
-<br><Br>
-###
---------------------------------------------
-<br><Br>
-## Final Game 📈
-### Gameplay: 📺
-[![Final Game GamePlay Video](img/video-screenshot.png)](https://youtu.be/6YB6mvAUw8o?si=BUFRCddLUNiMPFNf)
+## Look Inside
+![Gameplay Screenshot](img/lobby_screenshot.png) 
+![Gameplay Screenshot](img/Playground.png) 
+![Gameplay Screenshot](img/Camp.png) 
+![Gameplay Screenshot](img/Village.png) 
